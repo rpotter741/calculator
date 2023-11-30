@@ -1,0 +1,61 @@
+body { 
+    background-color: grey;
+
+}
+
+.calculatorFrame {
+    display: flex;
+    flex-direction: column;
+    background-color: darkslategray;
+    padding: 25px;
+    width: 250px;
+    height: 66%;
+    border-radius: 8px;
+}
+
+.smallButton {
+    border-radius: 25px;
+    border-width: 0;
+    width: 50px;
+    height: 50px;
+    font-weight: 800;
+    background-color: darkgrey;
+}
+
+.largeButton {
+    width: 115px;
+    height: 50px;
+    border-radius: 25px;
+    border-width: 0;
+    background-color: darkgrey;
+}
+
+#solutionBox { 
+    text-align: right;
+    padding: 12px;
+    font-size: 25px;
+    background-color: black;
+    color:aliceblue;
+    border-radius: 12px;;
+
+}
+
+.firstRow, .secondRow, .thirdRow, .fourthRow, .fifthRow {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 4px 0px;
+}
+
+#clear, #inverse, #percentage {
+    background-color: lightgray;
+}
+
+#divide, #multiply, #addition, #subtract { 
+    background-color: gold;
+    color:aliceblue;
+    font-size: 25px;
+}
+
+#equals { 
+    background-color: white;
+}
