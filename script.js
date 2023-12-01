@@ -1,9 +1,3 @@
-//create stepStatus; everything is stepStatus 1 until an operator sign is hit, then it switches to 2. 
-//once the equals sign is hit, it clears array 1 and puts the solution in;
-//if an operator is hit && array1 is empty, then array1 will have the current solution put in;
-//array2 stays the same until an operator is hit, then it is cleared and waits for status2
-
-
 //establish global variables and objects
 let stepStatus = 1;
 let stepOneArray = [];
@@ -13,7 +7,7 @@ let answer = "";
 let operation = "";
 let holdOver = "";
 
-//create number listeners
+//create number/button listeners
 let numberOne = document.querySelector("#one");
     numberOne.addEventListener('click', () => {
         checkStatus(1);
@@ -164,28 +158,18 @@ let inverse = document.querySelector("#inverse");
     inverse.addEventListener('click', () => {
         if(stepStatus == 1 || stepStatus == 3) {
                 let numberOne = parseFloat(stepOneArray.join(""));
-                if(numberOne > 0) {
-                    stepOneArray.splice(0, stepOneArray.length);
-                    let newNeg = makeNegative(numberOne);
-                    stepOneArray.push(newNeg);
-                } else if (numberOne < 0) {
-                    stepOneArray.splice(0, stepOneArray.length);
-                    let newPos = makePositive(numberOne);
-                    stepOneArray.push(newPos);
-                }
-            } else if (stepStatus == 2) { 
+                     stepOneArray.splice(0, stepOneArray.length);
+                    let newEntry = inverseValue(numberOne);
+                    stepOneArray.push(newEntry);
+                    }
+            else if (stepStatus == 2) {
                 let numberTwo = parseFloat(stepTwoArray.join(""));
-                if(numberTwo > 0) {
                     stepTwoArray.splice(0, stepTwoArray.length);
-                    let newNegTwo = makeNegative(numberTwo);
-                    stepTwoArray.push(newNegTwo);
-                } else if (numberTwo < 0) {
-                    stepTwoArray.splice(0, stepTwoArray.length);
-                    let newPosTwo = makePositive(numberTwo);
-                    stepTwoArray.push(newPosTwo);
+                    let newEntryTwo = inverseValue(numberTwo);
+                    stepTwoArray.push(newEntryTwo);
                 }
         }
-    })
+    )
 
 //create operate function
 function operate(operation) {
@@ -287,12 +271,7 @@ function valueSwap() {
 }
 
 //function to inverse positive to negative
-function makeNegative(number) {
+function inverseValue(number) {
     return (number * -1);
 }
 
-
-//function to inverse negative to positive
-function makePositive(number) {
-    return (number * -1);
-}
